@@ -1,34 +1,17 @@
 const express = require("express");
 const User = require("./users.model.js");
 const { DELETE, UPDATE, READ } = require("sequelize/types/query-types");
+const jwt = require("jsonwebtoken");
 
 
-// Get all users
+Router.post('/login',async (req,res) =>{
+  const {username, password} = req.body;
 
-router.get("/users", async (req, res) => {
-  try {
-    const users = await User.find();
-    res.json(users);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Server Error" });
+  if (username === "your_username" && password === "your_password"){
+    const token = jwt.sign({username}, jwtSecret, {expiresIn :'7d'});
+    res.json({token});
+
+  }else {
+    res.status(401).json({error: "Authentication failed"});
   }
 });
-
-// get users by ID
-// update user by ID
-// delete user by ID
-router.get("/users/:id", async (req, res) => {
-  try {
-    const userId = await User.find();
-    res.json(userId);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Server Error" });
-  }
-});
-
-
-router.get("/users/:delete", async (req,res) =>{
-
-})
