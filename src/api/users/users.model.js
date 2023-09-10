@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('./sequealize'); // Make sure the correct sequelize instance is used here
+const sequelize = require('./sequelize'); // Make sure the correct sequelize instance is used here
 const bcrypt = require('bcrypt');
 
 const User = sequelize.define("User", {

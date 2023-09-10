@@ -1,8 +1,7 @@
 const express = require("express");
 const User = require("./users.model.js");
-const { DELETE, UPDATE } = require("sequelize/types/query-types");
+const { DELETE, UPDATE, READ } = require("sequelize/types/query-types");
 
-const router = express.Router();
 
 // Get all users
 
@@ -28,3 +27,8 @@ router.get("/users/:id", async (req, res) => {
     res.status(500).json({ error: "Server Error" });
   }
 });
+
+
+router.get("/users/:delete", async (req,res) =>{
+
+})
