@@ -2,7 +2,7 @@ const express = require("express");
 const User = require("./users.model.js");
 const { DELETE, UPDATE, READ } = require("sequelize/types/query-types");
 const jwt = require("jsonwebtoken");
-const {jwtSecret} = require("../../middlewares/authenticateJwt.js")
+const {jwtSecret} = require("../../middlewares/authenticateJwt.js");
 
 const router = express.Router();
 
