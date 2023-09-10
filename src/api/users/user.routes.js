@@ -2,16 +2,25 @@ const express = require("express");
 const User = require("./users.model.js");
 const { DELETE, UPDATE, READ } = require("sequelize/types/query-types");
 const jwt = require("jsonwebtoken");
+const {jwtSecret} = require("../../middlewares/authenticateJwt.js")
 
+const router = express.Router();
 
-Router.post('/login',async (req,res) =>{
-  const {username, password} = req.body;
+router.post('/login', async (req,res) =>{
+  const {username,password} = req.body;
 
-  if (username === "your_username" && password === "your_password"){
-    const token = jwt.sign({username}, jwtSecret, {expiresIn :'7d'});
+  try{
+    const user = await User.findOne({where: {username}});
+    if (!user || user.password !== password){
+      return res.status(401).json({error: "Authentication failed"});
+    }
+    const token = jwt.sign({id: user.id, username: user.username}, jwtSecret, {expiresIn: '7d'});
     res.json({token});
-
-  }else {
-    res.status(401).json({error: "Authentication failed"});
+  }catch(error){
+    console.error(error);
+    res.status(500).json({error: "Internal Server Error"});
   }
 });
+
+module.exports = router;
+
