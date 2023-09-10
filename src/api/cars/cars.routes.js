@@ -76,4 +76,49 @@ router.delete('/:car_id', async (req, res) => {
     }
 });
 
+// Search for cars by make or model
+router.get('/search', async (req, res) => {
+    const { make, model } = req.query;
+
+    try {
+        let cars;
+
+        if (make && model) {
+            // Search by both make and model
+            cars = await Cars.findAll({
+                where: {
+                    make,
+                    model,
+                },
+            });
+        } else if (make) {
+            // Search by make only
+            cars = await Cars.findAll({
+                where: {
+                    make,
+                },
+            });
+        } else if (model) {
+            // Search by model only
+            cars = await Cars.findAll({
+                where: {
+                    model,
+                },
+            });
+        } else {
+            // No search parameters provided
+            return res.status(400).json({ error: 'Please provide make or model for search' });
+        }
+
+        if (cars.length === 0) {
+            return res.status(404).json({ message: 'No matching cars found' });
+        }
+
+        res.json(cars);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to search for cars' });
+    }
+});
+
 module.exports = router;
