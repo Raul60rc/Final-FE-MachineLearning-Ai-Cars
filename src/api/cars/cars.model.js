@@ -1,8 +1,14 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./sequelize');
-const validSpanishProvinces = require('./provinces'); // Import the array of valid provinces
+const validSpanishProvinces = require('./provinces');
 
 const Cars = sequelize.define("Cars", {
+    car_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+    },
     make: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -62,3 +68,4 @@ const Cars = sequelize.define("Cars", {
 });
 
 module.exports = Cars;
+
