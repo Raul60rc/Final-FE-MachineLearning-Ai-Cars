@@ -45,8 +45,6 @@ export const Register = () => {
             <div className="contact-div__form">
                 <form onSubmit={handleSubmit}>
                     <h2 className='title'>Register</h2>
-                        <label>User Name:</label>
-                        <input type="text" placeholder="Username" name="username" className='inputform' value={username} onChange={handleChange} required  />
                         <label>Email:</label>
                         <input type="email" placeholder="Email" name="email" className='inputform' value={email} onChange={handleChange} required  />
                         <label>Password:</label>

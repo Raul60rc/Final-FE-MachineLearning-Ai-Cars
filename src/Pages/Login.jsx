@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Footer from "../components/Footer";
 
 export const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
@@ -42,8 +42,8 @@ export const Login = ({ onLogin }) => {
             <div className="contact-div__form">
               <form>
                 <h2 className='title'>Login</h2>
-                    <label>User Name:</label>
-                    <input type="text" placeholder="Username" className="inputform" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <label>Email:</label>
+                    <input type="text" placeholder="Email" className="inputform" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     <label>Password:</label>
                     <input type="password" placeholder="Password" className="inputform" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     <a className="preg">Haven't registered yet?</a>
