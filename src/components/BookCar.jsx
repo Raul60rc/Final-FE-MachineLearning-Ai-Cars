@@ -162,7 +162,7 @@ function BookCar() {
         <div className="container">
           <div className="book-content">
             <div className="book-content__box">
-              <h2>Book a car</h2>
+              <h2>New car</h2>
 
               <p className="error-message">
                 All fields required! <i className="fa-solid fa-xmark"></i>
