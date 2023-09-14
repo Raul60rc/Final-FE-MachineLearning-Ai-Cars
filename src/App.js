@@ -13,6 +13,7 @@ import { Cookies } from "./Pages/Cookies";
 import { Privacy } from "./Pages/Privacy";
 import { LegalWarning } from "./Pages/Legal";
 import { Conditions } from "./Pages/Conditions";
+import { NewCar } from "./Pages/NewCar";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="privacy" element={<Privacy />} />
         <Route path="legalwarning" element={<LegalWarning />} />
         <Route path="conditions" element={<Conditions />} />
+        <Route path="newcar" element={<NewCar />} />
       </Routes>
     </>
   );
