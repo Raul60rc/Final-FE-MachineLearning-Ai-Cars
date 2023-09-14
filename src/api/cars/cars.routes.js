@@ -122,3 +122,11 @@ router.get('/search', async (req, res) => {
 });
 
 module.exports = router;
+
+
+//routes to be created cars get all cars
+// cars make to get a car make
+// car model to get car  model
+// car id to get full car details
+// car id user client gets cars that user has inserted
+// cars post,put,delete 

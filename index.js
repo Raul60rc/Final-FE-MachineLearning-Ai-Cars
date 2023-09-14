@@ -1,15 +1,21 @@
-const Sequelize = require("sequelize");
+const express = require("express");
+const sequelize = require("./sequelize"); // Correct path to sequelize.js
+const app = express();
 
-const sequelize = new Sequelize("used_cars", "root", "admin", {
-  host: "localhost",
-  dialect: "mysql",
-});
+// ... Define your Express routes and middleware ...
 
+// Synchronize the models with the database
 sequelize
-  .authenticate()
+  .sync()
   .then(() => {
-    console.log("Connection has been established successfully.");
+    console.log("Database tables have been created (if not already exist).");
   })
   .catch((error) => {
-    console.error("Unable to connect to the database: ", error);
+    console.error("Error syncing database:", error);
   });
+
+// Start your Express server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
