@@ -2,7 +2,6 @@ import React from "react";
 import Footer from "../components/Footer";
 
 export function User() {
-
   return (
     <>
       <section className="contact-page">
@@ -27,5 +26,3 @@ export function User() {
     </>
   );
 };
-
-            
