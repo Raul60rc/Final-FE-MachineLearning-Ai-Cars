@@ -13,10 +13,21 @@ import { Cookies } from "./Pages/Cookies";
 import { Privacy } from "./Pages/Privacy";
 import { LegalWarning } from "./Pages/Legal";
 import { Conditions } from "./Pages/Conditions";
-import { NewCar } from "./Pages/NewCar";
+import React, { useState } from 'react';
+import NewCar from "./Pages/NewCar";
 
 function App() {
-  return (
+    const [loggedIn, setLoggedIn] = useState(false);
+  
+    const handleLogin = () => {
+      setLoggedIn(true);
+    };
+  
+    const handleLogout = () => {
+      setLoggedIn(false);
+    };
+  
+    return (
     <>
       <Navbar />
       <Routes>
@@ -33,6 +44,7 @@ function App() {
         <Route path="legalwarning" element={<LegalWarning />} />
         <Route path="conditions" element={<Conditions />} />
         <Route path="newcar" element={<NewCar />} />
+        <Route path="models" element={loggedIn ? <Models onLogout={handleLogout} /> : <Login onLogin={handleLogin} />} />
       </Routes>
     </>
   );

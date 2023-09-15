@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import Footer from "../components/Footer";
 
 export const Login = ({ onLogin }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Realizar una petición al servidor para verificar las credenciales
-    // Aquí puedes usar axios, fetch, u otra librería de tu elección
+    // Aquí puedes realizar la verificación del login
+    // Verifica si el username y la contraseña son válidos
 
-    // Si las credenciales son correctas, guardar el token de sesión en el localStorage
-    const token = "token_de_ejemplo";
-    localStorage.setItem("token", token);
-
-    // Llamar a la función onLogin para indicar que el usuario ha iniciado sesión
-    onLogin();
+    if (email === 'youremail@example.com' && password === '123456') {
+      onLogin(); // llamamos a la función `onLogin` pasada como props para actualizar el estado de logueo
+    } else {
+      alert('ERROR: Email or Password invalid');
+    }
   };
 
   return (
@@ -40,15 +39,17 @@ export const Login = ({ onLogin }) => {
               <p className="copyright">By registering you accept our <a href="/conditions">terms and conditions</a> as well as our <a href="/privacy">privacy policy</a>.</p>
             </div>
             <div className="contact-div__form">
-              <form>
+              <form >
                 <h2 className='title'>Login</h2>
-                    <label>Email:</label>
-                    <input type="text" placeholder="Email" className="inputform" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    <label>Password:</label>
-                    <input type="password" placeholder="Password" className="inputform" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                    <a className="preg">Haven't registered yet?</a>
-                    <a href="/register" className="preg">Register</a><br />
-                    <button onClick={handleLogin} className="ButtonSub">Sign In</button>
+                  <label>Email:</label>
+                  <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+
+                  <label>Password:</label>
+                  <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+
+                  <a className="preg">Haven't registered yet?</a>
+                  <a href="/register" className="preg">Register</a><br />
+                  <button onClick={handleLogin} className="ButtonSub">Sign In</button>
               </form>
             </div>
           </div>
@@ -59,4 +60,3 @@ export const Login = ({ onLogin }) => {
   );
 };
 
-            

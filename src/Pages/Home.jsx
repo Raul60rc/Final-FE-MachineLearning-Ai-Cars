@@ -7,13 +7,11 @@ import ChooseUs from "../components/ChooseUs";
 import Testimonials from "../components/Testimonials";
 import Faq from "../components/Faq";
 import Footer from "../components/Footer";
-/* import { CarSaleForm } from "../components/exampleform"; */
 
 function Home() {
   return (
     <>
       <Hero />
-{/*       <CarSaleForm /> */}
       <BookCar />
       <PlanTrip />
       <PickCar />

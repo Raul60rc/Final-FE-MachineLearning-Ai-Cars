@@ -18,3 +18,5 @@ export function NewCar() {
     </>
     );
 }
+
+export default NewCar;

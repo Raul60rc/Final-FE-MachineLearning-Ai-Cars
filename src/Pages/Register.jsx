@@ -3,12 +3,11 @@ import Footer from "../components/Footer";
 
 export const Register = () => {
   const [formData, setFormData] = useState({
-    username: '',
     email: '',
     password: ''
   });
 
-  const { username, email, password } = formData;
+  const { email, password } = formData;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -50,7 +49,7 @@ export const Register = () => {
                         <label>Password:</label>
                         <input type="password" placeholder="Password" name="password" className='inputform' value={password} onChange={handleChange} required  />
                         <a className='preg'>Already have an account?</a>
-                        <a href="./login" className='preg'>Sign In</a><br />
+                        <a href="/login" className='preg'>Sign In</a><br />
                         <button type="submit" className='ButtonSub'>Register</button>
                 </form>
             </div>
