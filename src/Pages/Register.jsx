@@ -45,9 +45,9 @@ export const Register = () => {
                 <form onSubmit={handleSubmit}>
                     <h2 className='title'>Register</h2>
                         <label>Email:</label>
-                        <input type="email" placeholder="Email" name="email" className='inputform' value={email} onChange={handleChange} required  />
+                        <input type="email" placeholder="Email" name="email" value={email} onChange={handleChange} required  />
                         <label>Password:</label>
-                        <input type="password" placeholder="Password" name="password" className='inputform' value={password} onChange={handleChange} required  />
+                        <input type="password" placeholder="Password" name="password" value={password} onChange={handleChange} required  />
                         <a className='preg'>Already have an account?</a>
                         <a href="/login" className='preg'>Sign In</a><br />
                         <button type="submit" className='ButtonSub'>Register</button>

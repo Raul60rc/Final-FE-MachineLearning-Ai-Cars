@@ -15,6 +15,7 @@ import { LegalWarning } from "./Pages/Legal";
 import { Conditions } from "./Pages/Conditions";
 import React, { useState } from 'react';
 import NewCar from "./Pages/NewCar";
+import Formulario from "./Pages/exampleform";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -45,6 +46,7 @@ function App() {
         <Route path="conditions" element={<Conditions />} />
         <Route path="newcar" element={<NewCar />} />
         <Route path="models" element={loggedIn ? <Models onLogout={handleLogout} /> : <Login onLogin={handleLogin} />} />
+        <Route path="exampleform" element={<Formulario />} />
       </Routes>
     </>
   );

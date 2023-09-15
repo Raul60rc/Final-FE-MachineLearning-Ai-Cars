@@ -2041,3 +2041,9 @@ footer {
 .copyright {
   font-size: x-small;
 }
+
+.inputform {
+  height: 45px;
+  border-color: #d9d9d9;
+  border-radius: 3px;
+}

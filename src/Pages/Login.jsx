@@ -49,7 +49,7 @@ export const Login = ({ onLogin }) => {
 
                   <a className="preg">Haven't registered yet?</a>
                   <a href="/register" className="preg">Register</a><br />
-                  <button onClick={handleLogin} className="ButtonSub">Sign In</button>
+                  <button onClick={window} className="ButtonSub">Sign In</button>
               </form>
             </div>
           </div>
