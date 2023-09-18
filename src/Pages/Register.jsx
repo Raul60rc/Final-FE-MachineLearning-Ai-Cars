@@ -3,11 +3,12 @@ import Footer from "../components/Footer";
 
 export const Register = () => {
   const [formData, setFormData] = useState({
+    username: '',
     email: '',
     password: ''
   });
 
-  const { email, password } = formData;
+  const { username, email, password } = formData;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,12 +45,14 @@ export const Register = () => {
             <div className="contact-div__form">
                 <form onSubmit={handleSubmit}>
                     <h2 className='title'>Register</h2>
+                        <label>User Name:</label>
+                        <input type="text" placeholder="Username" name="username" className='inputform' value={username} onChange={handleChange} required  />
                         <label>Email:</label>
-                        <input type="email" placeholder="Email" name="email" value={email} onChange={handleChange} required  />
+                        <input type="email" placeholder="Email" name="email" className='inputform' value={email} onChange={handleChange} required  />
                         <label>Password:</label>
-                        <input type="password" placeholder="Password" name="password" value={password} onChange={handleChange} required  />
+                        <input type="password" placeholder="Password" name="password" className='inputform' value={password} onChange={handleChange} required  />
                         <a className='preg'>Already have an account?</a>
-                        <a href="/login" className='preg'>Sign In</a><br />
+                        <a href="./login" className='preg'>Sign In</a><br />
                         <button type="submit" className='ButtonSub'>Register</button>
                 </form>
             </div>

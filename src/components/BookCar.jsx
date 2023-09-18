@@ -79,10 +79,6 @@ function BookCar() {
             <div className="book-content__box">
               <h2>New car</h2>
 
-              <p className="error-message">
-                All fields required! <i className="fa-solid fa-xmark"></i>
-              </p>
-
               <p className="booking-done">
                 Check your email to confirm an order.{" "}
                 <i onClick={hideMessage} className="fa-solid fa-xmark"></i>
@@ -94,14 +90,12 @@ function BookCar() {
                     <i className="fa-solid fa-car"></i> &nbsp; Select Your Car
                     Type <b>*</b>
                   </label>
-                  <select value={carType} onChange={handleCar}>
+                  <select value={carType} onChange={handleCar} required>
                     <option>Select your car type</option>
                     <option value="Audi A1 S-Line">Audi A1 S-Line</option>
                     <option value="VW Golf 6">VW Golf 6</option>
                     <option value="Toyota Camry">Toyota Camry</option>
-                    <option value="BMW 320 ModernLine">
-                      BMW 320 ModernLine
-                    </option>
+                    <option value="BMW 320 ModernLine"> BMW 320 ModernLine </option>
                     <option value="Mercedes-Benz GLK">Mercedes-Benz GLK</option>
                     <option value="VW Passat CC">VW Passat CC</option>
                   </select>
@@ -112,7 +106,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Select Your Model Car{" "}
                     <b>*</b>
                   </label>
-                  <select value={pickUp} onChange={handlePick}>
+                  <select value={pickUp} onChange={handlePick} required>
                     <option>Select pick up location</option>
                     <option>Belgrade</option>
                     <option>Novi Sad</option>
@@ -127,7 +121,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Enter Your Car License Plate{" "}
                     <b>*</b>
                   </label>
-                  <input type="number" value={dropOff} onChange={handleDrop} placeholder=" Ex. 1111AAA" className='inputform' />
+                  <input type="number" value={dropOff} onChange={handleDrop} placeholder=" Ex. 1111AAA" className='inputform' required />
                 </div>
 
                 <div className="box-form__car-type">
@@ -135,7 +129,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Exchange Rate{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select Exchange Rate</option>
                     <option>Automatic Change</option>
                     <option>Manual Change</option>
@@ -147,7 +141,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Fuel Type{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select Fuel Type</option>
                     <option>Gasoline</option>
                     <option>Diesel</option>
@@ -160,7 +154,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; First car registration{" "}
                     <b>*</b>
                   </label>
-                  <input type="date" value={dropOff} onChange={handleDrop} placeholder=" €" className='inputform' />
+                  <input type="date" value={dropOff} onChange={handleDrop} placeholder=" €" className='inputform' required />
                 </div>
 
                 <div className="box-form__car-type">
@@ -168,7 +162,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; How Many Doors Does It Have{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select Doors Type</option>
                     <option>3 Doors</option>
                     <option>5 Doors</option>
@@ -180,7 +174,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; How many kilometers does it have?{" "}
                     <b>*</b>
                   </label>
-                  <input type="number" value={dropOff} onChange={handleDrop} placeholder=" In Km" className='inputform' />
+                  <input type="number" value={dropOff} onChange={handleDrop} placeholder=" In Km" className='inputform' required />
                 </div>
 
                 <div className="box-form__car-type">
@@ -188,7 +182,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; How many keys do you have?{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select How Many Keys You Have</option>
                     <option>1 key</option>
                     <option>2+ keys</option>
@@ -200,7 +194,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Do you have the maintenance booklet (or a digital certificate)?{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select your choose</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -212,7 +206,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Have you passed the ITV in the last 6 months?{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select your choose</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -225,7 +219,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Is your car imported?{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select your choose</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -237,7 +231,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; What color is the exterior of your car?{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select your choose</option>
                     <option>Grey</option>
                     <option>White</option>
@@ -256,7 +250,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Can the car drive?{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select your choose</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -268,7 +262,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Has your car suffered damage due to an accident?{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select your choose</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -280,7 +274,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; What is the condition of the car's interior?{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select your choose</option>
                     <option>In perfect condition</option>
                     <option>Slightly worn</option>
@@ -293,7 +287,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; What is the condition of the car's exterior?{" "}
                     <b>*</b>
                   </label>
-                  <select value={dropOff} onChange={handleDrop}>
+                  <select value={dropOff} onChange={handleDrop} required>
                     <option>Select your choose</option>
                     <option>In perfect condition</option>
                     <option>Slightly worn</option>
@@ -306,7 +300,7 @@ function BookCar() {
                     <i className="fa-solid fa-location-dot"></i> &nbsp; Enter your offer{" "}
                     <b>*</b>
                   </label>
-                  <input type="number" value={dropOff} onChange={handleDrop} placeholder=" €" className='inputform' />
+                  <input type="number" value={dropOff} onChange={handleDrop} placeholder=" €" className='inputform' required />
                 </div>
 
                 <br />

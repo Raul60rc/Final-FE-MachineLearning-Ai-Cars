@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "../images/logo/logo.png";
 import { useState } from "react";
+import DarkModeButton from "./DarkModeButton";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
@@ -9,9 +10,15 @@ function Navbar() {
     setNav(!nav);
   };
 
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <>
-      <nav>
+      <nav className={darkMode ? "navbar dark" : "navbar"}>
         {/* mobile */}
         <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
           <div onClick={openNav} className="mobile-navbar__close">
@@ -98,6 +105,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
+          <DarkModeButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           <div className="navbar__buttons">
             <Link className="navbar__buttons__sign-in" to="/login">
               Sign In

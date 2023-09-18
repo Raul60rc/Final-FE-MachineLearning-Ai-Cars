@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import BgShape from "../images/hero/hero-bg.png";
+import BgShape from "../images/hero/hero-bg-dark.png";
 import HeroCar from "../images/hero/main-car.png";
 import { useEffect, useState } from "react";
 

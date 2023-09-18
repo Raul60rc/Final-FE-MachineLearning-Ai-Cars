@@ -1,108 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import Footer from "../components/Footer";
 
-export const CarSaleForm = () => {
-  const [formData, setFormData] = useState({
-    make: "",
-    model: "",
-    year: "",
-    price: "",
-    condition: "",
-    contactInfo: {
-      name: "",
-      phone: "",
-      email: ""
-    }
-  });
+const Formulario = () => {
+    const [cars, setCars] = useState([]); // Estado para almacenar los datos obtenidos de la API
+    const [optionSelect, setOptionSelect] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+    useEffect(() => {
+        // Función para obtener los datos de la API
+        const fetchData = async () => {
+            try {
+                const response = await fetch(''); // Reemplaza 'API_URL' con la URL de tu API
+                const jsonData = await response.json();
+                setCars(jsonData);
+                console.log(jsonData);
+            } catch (error) {
+                console.log('Error al obtener los datos:', error);
+            }
+        };
 
-    if (name.includes(".")) {
-      const [parentKey, childKey] = name.split(".");
-      setFormData((prevState) => ({
-        ...prevState,
-        [parentKey]: {
-          ...prevState[parentKey],
-          [childKey]: value
-        }
-      }));
-    } else {
-      setFormData((prevState) => ({
-        ...prevState,
-        [name]: value
-      }));
-    }
-  };
+        fetchData();
+    }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData); // Do something with the form data here
-  };
+    return (
+        <section className="contact-page">
+            <br />
+            <div className="container">
+                <div className="cookies">
+                    <form>
+                        <select value={optionSelect} onChange={e => setOptionSelect(e.target.value)}>
+                            {cars.map(car => (
+                                <option key={car.id} value={car.value}>{car.description}</option>
+                            ))}
+                        </select>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <Footer />
+        </section>
+    );
+}
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <h2>Car Sale Form</h2>
-      {/* Car Details */}
-      <input
-        type="text"
-        name="make"
-        placeholder="Make"
-        value={formData.make}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="model"
-        placeholder="Model"
-        value={formData.model}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="year"
-        placeholder="Year"
-        value={formData.year}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="price"
-        placeholder="Price"
-        value={formData.price}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="condition"
-        placeholder="Condition"
-        value={formData.condition}
-        onChange={handleChange}
-      />
-
-      {/* Contact Info */}
-      <input
-        type="text"
-        name="contactInfo.name"
-        placeholder="Name"
-        value={formData.contactInfo.name}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="contactInfo.phone"
-        placeholder="Phone"
-        value={formData.contactInfo.phone}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="contactInfo.email"
-        placeholder="Email"
-        value={formData.contactInfo.email}
-        onChange={handleChange}
-      />
-
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
+export default Formulario;
